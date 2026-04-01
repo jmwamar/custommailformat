@@ -1,0 +1,442 @@
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css" rel="stylesheet"/>
+    <style>
+		table > tbody >tr> td:nth-child(2):hover, 
+	    table > tbody >tr> td:nth-child(3):hover {
+	        cursor: pointer;
+	        background-color: pink;
+	    }
+	    textarea{width: 100%;}
+	</style>
+    
+</head>
+<body>
+	<div class="container">
+		<strong>Custom Emails</strong>
+		<table class="table table-bordered" id="table" style="table-layout: fixed;">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Subject</th>
+					<th>Body</th> 
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Confirmation Email</td>
+					<td>Job Received For Service Upon: {{Servee}}</td>
+					<td>
+						<textarea>
+							<p>Thank you for sending a new service to Blue Water Legal Process LLC!<br><br>We are in receipt of the following job for service:<br><br><strong>{{Plaintiff}}</strong><br>v.<br><strong>{{Defendant}}</strong><br><br>Index: <strong>{{CaseNo}}</strong><br><br>Person to serve: <strong>{{Servee}}</strong><br><br>Address:</p>
+							<p><strong>{{ActiveAddr}}</strong> <strong>{{ActiveAddr1}}</strong></p>
+							<p><strong>{{ActiveCity}}</strong> <strong>{{ActiveState}}</strong> <strong>{{ActiveZip}}</strong><br><br>Our Job Number: <strong>{{JobNum}}</strong><br><br>Reference Number(s): <strong>{{JobScreenLawFirmJobRef}}</strong> <strong>{{JobScreenCompanyJobRef}}</strong><br><br><br><br>If you have any questions, please contact our office at <strong>(810) 941-4560 </strong>or <strong>david@bwlpllc.com</strong><br><br></p>
+							<table style="font-family: Arial, Verdana, sans-serif, Tahoma, 'Times New Roman', 'Trebuchet MS'; font-size: 12px; color: #434343; line-height: 16px; width: 52.1036%;" border="0" cellspacing="0" cellpadding="0">
+							<tbody>
+							<tr>
+							<td align="left" valign="middle" nowrap="nowrap" style="width: 100%;"><strong>Blue Water Legal Process LLC</strong>
+							<div style="width: 99%; height: 5px; line-height: 5px; overflow: hidden; padding: 0; margin: 0; font-size: 0px; display: block;"> </div>
+							3300 W Charmwood Drive; Port Huron, Michigan 48060-1680<br><span style="color: #000000;"><strong>T</strong>: </span><a style="color: #434343; text-decoration: none;" href="tel:(810) 941-4560 
+							"><span style="text-decoration: none;">(810) 941-4560 </span></a>| <span style="color: #000000;"><strong>E</strong>: </span><a style="color: #434343; text-decoration: none;" href="mailto:documents@bluewaterlegalprocess.com"><span style="text-decoration: none;">david@bwlpllc.com</span></a> <br><span style="color: #000000;"><strong>W</strong>: </span><a style="color: #434343; text-decoration: none;" href="http://bluewaterlegalprocess.com" target="_blank" rel="noopener"><span style="text-decoration: none;">bwlpllc.com</span></a><br>
+							<div style="width: 99%; height: 5px; line-height: 5px; overflow: hidden; padding: 0; margin: 0; font-size: 0px; display: block;"> </div>
+							<a href="http://bluewaterlegalprocess.com" target="_blank" rel="noopener"><img src="https://i.imgur.com/m2p7KKk.png" alt="Blue Water Legal Process LLC" width="136" height="94"></a>
+							<div style="width: 99%; height: 5px; line-height: 5px; overflow: hidden; padding: 0; margin: 0; font-size: 0px; display: block;"> </div>
+							</td>
+							</tr>
+							</tbody>
+							</table>
+							<div style="width: 100px; height: 5px; line-height: 5px; overflow: hidden; padding: 0; margin: 0; font-size: 0px; display: block;"> </div>
+							<table style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #999999; border-top: solid 1px #dadada;" border="0" width="100%" cellspacing="0" cellpadding="0">
+							<tbody>
+							<tr>
+							<td style="padding-top: 10px;">Confidentiality Warning: This e-mail contains information intended only for the use of the individual or entity named above. If the reader of this e-mail is not the intended recipient or the employee or agent responsible for delivering it to the intended recipient, any dissemination, publication or copying of this e-mail is strictly prohibited. The sender does not accept any responsibility for any loss, disruption or damage to your data or computer system that may occur while using data contained in, or transmitted with, this e-mail. If you have received this e-mail in error, please immediately notify us by return e-mail.</td>
+							</tr>
+							</tbody>
+							</table>
+							<p> </p>
+							<div style="white-space: nowrap; font: 15px courier; line-height: 0;"> </div>
+						</textarea>
+					</td>
+				</tr> 
+				<tr>
+					<td>Auto Attempt Emails</td>
+					<td>Auto Attempt/Event Email Regarding Your File# {{JobScreenLawFirmJobRef}} {{JobScreenCompanyJobRef}} - {{Servee}}</td>
+					<td>
+						<textarea>
+							<p>Our Job#: <strong>{{JobNum}}</strong><br>Your Ref#: <strong>{{JobScreenLawFirmJobRef}}</strong> <strong>{{JobScreenCompanyJobRef}}</strong><br>Recipient: <strong>{{Servee}}</strong><br><br>The Following Attempt/Event has been entered on this job: <br><br>Date: <strong>{{StatusDt}}</strong> at <strong>{{StatusTm}}</strong><br><br>Address: <strong>{{Addr}}</strong> <strong>{{Addr1}}</strong> <strong>{{City}}</strong> <strong>{{State}}</strong> <strong>{{Zip}}</strong><br><br>Event: <strong>{{StatusItem}}</strong><br><br>If you have any questions, please contact our office at <strong>201-489-2245</strong> or <strong>service@njprocess.com</strong><br><br></p>
+						<table border="0" cellspacing="0" cellpadding="0" style="font-family: Arial, Verdana, sans-serif, Tahoma, 'Times New Roman', 'Trebuchet MS'; font-size: 12px; color: #434343; line-height: 16px; width: 99.4624%; height: 100px;">
+						<tbody>
+						<tr style="height: 100px;">
+						<td align="left" valign="middle" nowrap="nowrap" style="width: 99.6396%;">
+						<div><strong>Callahan Legal Support</strong></div>
+						90 Main St, Suite 204, Hackensack, NJ 07601<br><span style="color: #000000;"><strong>T</strong>: </span><a style="color: #434343; text-decoration: none;" href="tel:201-489-2245
+						"><span style="text-decoration: none;">201-489-2245 </span></a>| <span style="color: #000000;"><strong>E</strong>: </span><a style="color: #434343; text-decoration: none;" href="mailto:service@njprocess.com"><span style="text-decoration: none;">service@njprocess.com</span></a> <br><span style="color: #000000;"><strong>W</strong>: </span><a style="color: #434343; text-decoration: none;" href="https://njprocess.com" target="_blank" rel="noopener"><span style="text-decoration: none;">njprocess.com</span></a></td>
+						</tr>
+						</tbody>
+						</table>
+						<table style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #999999; border-top: solid 1px #dadada;" border="0" width="100%" cellspacing="0" cellpadding="0">
+						<tbody>
+						<tr>
+						<td style="padding-top: 10px;">Confidentiality Warning: This e-mail contains information intended only for the use of the individual or entity named above. If the reader of this e-mail is not the intended recipient or the employee or agent responsible for delivering it to the intended recipient, any dissemination, publication or copying of this e-mail is strictly prohibited. The sender does not accept any responsibility for any loss, disruption or damage to your data or computer system that may occur while using data contained in, or transmitted with, this e-mail. If you have received this e-mail in error, please immediately notify us by return e-mail.</td>
+						</tr>
+						</tbody>
+						</table>
+						</textarea>
+					</td>
+				</tr> 
+				<tr>
+					<td>Signature Request Email</td>
+					<td>Signature Request For Job#{{JobNum}} - {{Servee}}</td>
+					<td>
+						<textarea><p>Please <a href="{{downloadlink}}" target="_blank" rel="noopener">Click Here</a> To Sign The Affidavit On This Job.<br><br>If you have any questions, please contact our office at <strong>201-489-2245</strong> or <strong>service@njprocess.com</strong><br><br></p>
+						<table border="0" cellspacing="0" cellpadding="0" style="font-family: Arial, Verdana, sans-serif, Tahoma, 'Times New Roman', 'Trebuchet MS'; font-size: 12px; color: #434343; line-height: 16px; width: 99.4624%; height: 100px;">
+						<tbody>
+						<tr style="height: 100px;">
+						<td align="left" valign="middle" nowrap="nowrap" style="width: 99.6396%;">
+						<div><strong>Callahan Legal Support</strong></div>
+						90 Main St, Suite 204, Hackensack, NJ 07601<br><span style="color: #000000;"><strong>T</strong>: </span><a style="color: #434343; text-decoration: none;" href="tel:201-489-2245
+						"><span style="text-decoration: none;">201-489-2245 </span></a>| <span style="color: #000000;"><strong>E</strong>: </span><a style="color: #434343; text-decoration: none;" href="mailto:service@njprocess.com"><span style="text-decoration: none;">service@njprocess.com</span></a> <br><span style="color: #000000;"><strong>W</strong>: </span><a style="color: #434343; text-decoration: none;" href="https://njprocess.com" target="_blank" rel="noopener"><span style="text-decoration: none;">njprocess.com</span></a></td>
+						</tr>
+						</tbody>
+						</table>
+						<table style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #999999; border-top: solid 1px #dadada;" border="0" width="100%" cellspacing="0" cellpadding="0">
+						<tbody>
+						<tr>
+						<td style="padding-top: 10px;">Confidentiality Warning: This e-mail contains information intended only for the use of the individual or entity named above. If the reader of this e-mail is not the intended recipient or the employee or agent responsible for delivering it to the intended recipient, any dissemination, publication or copying of this e-mail is strictly prohibited. The sender does not accept any responsibility for any loss, disruption or damage to your data or computer system that may occur while using data contained in, or transmitted with, this e-mail. If you have received this e-mail in error, please immediately notify us by return e-mail.</td>
+						</tr>
+						</tbody>
+						</table></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>Attempt Email Manual</td>
+					<td>Attempt/Event Update: {{Servee}} CLS Job # {{JobNum}}</td>
+					<td>
+						<textarea><p>Our Job#: <strong>{{JobNum}}</strong><br>Your Ref#: <strong>{{JobScreenLawFirmJobRef}}</strong> <strong>{{JobScreenCompanyJobRef}}</strong><br>Recipient: <strong>{{Servee}}</strong></p>
+						<p>Process Server: <strong>{{SubServer}}</strong><br><br><strong>{{ActiveAddr}}</strong> <strong>{{ActiveAddr1}}</strong><br><strong>{{ActiveCity}}</strong> <strong>{{ActiveState}}</strong> <strong>{{ActiveZip}}<span></span></strong><br><span></span><br><strong>{{additionalmessage}}</strong><br><br>The Following Attempts Have Taken Place On This Job:</p>
+						<p>{{attempttable}}<span style="font-size: 12pt; font-family: Arial, sans-serif; color: black;"> </span></p>
+						<p class="MsoNormal" style="margin-bottom: 0in; line-height: normal; mso-layout-grid-align: none; text-autospace: none;">If you have any questions, please contact our office at <strong>201-489-2245</strong> or <strong>service@njprocess.com</strong><br><br></p>
+						<table border="0" cellspacing="0" cellpadding="0" style="font-family: Arial, Verdana, sans-serif, Tahoma, 'Times New Roman', 'Trebuchet MS'; font-size: 12px; color: #434343; line-height: 16px; width: 99.4624%; height: 100px;">
+						<tbody>
+						<tr style="height: 100px;">
+						<td align="left" valign="middle" nowrap="nowrap" style="width: 99.6396%;">
+						<div><strong>Callahan Lawyers Service, Inc.</strong></div>
+						90 Main St, Suite 204, Hackensack, NJ 07601<br><span style="color: #000000;"><strong>T</strong>: </span><a style="color: #434343; text-decoration: none;" href="tel:201-489-2245
+						"><span style="text-decoration: none;">201-489-2245 </span></a>| <span style="color: #000000;"><strong>E</strong>: </span><a style="color: #434343; text-decoration: none;" href="mailto:service@njprocess.com"><span style="text-decoration: none;">service@njprocess.com</span></a> <br><span style="color: #000000;"><strong>W</strong>: </span><a style="color: #434343; text-decoration: none;" href="https://njprocess.com" target="_blank" rel="noopener"><span style="text-decoration: none;">njprocess.com</span></a></td>
+						</tr>
+						</tbody>
+						</table>
+						<table style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #999999; border-top: solid 1px #dadada;" border="0" width="100%" cellspacing="0" cellpadding="0">
+						<tbody>
+						<tr>
+						<td style="padding-top: 10px;">Confidentiality Warning: This e-mail contains information intended only for the use of the individual or entity named above. If the reader of this e-mail is not the intended recipient or the employee or agent responsible for delivering it to the intended recipient, any dissemination, publication or copying of this e-mail is strictly prohibited. The sender does not accept any responsibility for any loss, disruption or damage to your data or computer system that may occur while using data contained in, or transmitted with, this e-mail. If you have received this e-mail in error, please immediately notify us by return e-mail.</td>
+						</tr>
+						</tbody>
+						</table></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>Auto Scanned Document Email</td>
+					<td>Job #{{JobNum}} - {{Servee}} -- Please See These Document(s)</td>
+					<td>
+						<textarea><p>Recipient: <strong>{{Servee}}</strong></p>
+						<p>Reference Number(s): <strong>{{JobScreenLawFirmJobRef}} {{JobScreenCompanyJobRef}} </strong><br><br>A(n) <b>{{DocumentName}}</b> has been attached on this job. <br><br>Please <a href="{{downloadlink}}">Click Here</a> To View/Print The Document.</p>
+						<p>If you have any questions, please contact our office at <strong>201-489-2245</strong> or <strong><a href="mailto:service@njprocess.com">service@njprocess.com</a></strong></p>
+						<table border="0" cellspacing="0" cellpadding="0" style="font-family: Arial, Verdana, sans-serif, Tahoma, 'Times New Roman', 'Trebuchet MS'; font-size: 12px; color: #434343; line-height: 16px; width: 99.4624%; height: 100px;">
+						<tbody>
+						<tr style="height: 100px;">
+						<td align="left" valign="middle" nowrap="nowrap" style="width: 99.6396%;">
+						<div><strong>Callahan Legal Support</strong></div>
+						90 Main St, Suite 204, Hackensack, NJ 07601<br><span style="color: #000000;"><strong>T</strong>: </span><a style="color: #434343; text-decoration: none;" href="tel:201-489-2245
+						"><span style="text-decoration: none;">201-489-2245 </span></a>| <span style="color: #000000;"><strong>E</strong>: </span><a style="color: #434343; text-decoration: none;" href="mailto:service@njprocess.com"><span style="text-decoration: none;">service@njprocess.com</span></a> <br><span style="color: #000000;"><strong>W</strong>: </span><a style="color: #434343; text-decoration: none;" href="https://njprocess.com" target="_blank" rel="noopener"><span style="text-decoration: none;">njprocess.com</span></a></td>
+						</tr>
+						</tbody>
+						</table>
+						<table style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #999999; border-top: solid 1px #dadada;" border="0" width="100%" cellspacing="0" cellpadding="0">
+						<tbody>
+						<tr>
+						<td style="padding-top: 10px;">Confidentiality Warning: This e-mail contains information intended only for the use of the individual or entity named above. If the reader of this e-mail is not the intended recipient or the employee or agent responsible for delivering it to the intended recipient, any dissemination, publication or copying of this e-mail is strictly prohibited. The sender does not accept any responsibility for any loss, disruption or damage to your data or computer system that may occur while using data contained in, or transmitted with, this e-mail. If you have received this e-mail in error, please immediately notify us by return e-mail.</td>
+						</tr>
+						</tbody>
+						</table></textarea>
+					</td>
+				</tr> 
+				<tr>
+					<td>Custom Invoice Email</td>
+					<td>An Invoice(s) Has Been Generated For You From Fortis Legal Support</td>
+					<td>
+						<textarea><p>Please <a href="{{downloadlink}}" target="_blank" rel="noopener">Click Here</a> To View And Pay Your Invoice</p>
+						<p><strong>{{remarks}}</strong><br><br>If you have any questions, please contact our office at <strong>(678) 592 7902</strong> or <strong>kgoggins@fortislegalsupport.com</strong><br><br></p>
+						<table style="font-family: Arial, Verdana, sans-serif, Tahoma, 'Times New Roman', 'Trebuchet MS'; font-size: 12px; color: #434343; line-height: 16px;" border="0" cellspacing="0" cellpadding="0">
+						<tbody>
+						<tr>
+						<td align="left" valign="middle" nowrap="nowrap"><strong>Fortis Legal Support</strong>
+						<div style="width: 99%; height: 5px; line-height: 5px; overflow: hidden; padding: 0; margin: 0; font-size: 0px; display: block;"> </div>
+						1201 W Peachtree St NE, Bldg 400, Su. 100, Atlanta, GA 30309-3400<br><span style="color: #000000;"><strong>T</strong>: </span><a style="color: #434343; text-decoration: none;" href="tel:(678) 592 7902
+						"><span style="text-decoration: none;">(678) 592 7902</span></a> | <span style="color: #000000;"><strong>E</strong>: </span><a style="color: #434343; text-decoration: none;" href="mailto:kgoggins@fortislegalsupport.com"><span style="text-decoration: none;">kgoggins@fortislegalsupport.com</span></a> <br><span style="color: #000000;"><strong>W</strong>: </span><a style="color: #434343; text-decoration: none;" href="https://fortislegalsupport.com" target="_blank" rel="noopener"><span style="text-decoration: none;">fortislegalsupport.com</span></a><br>
+						<div style="width: 99%; height: 5px; line-height: 5px; overflow: hidden; padding: 0; margin: 0; font-size: 0px; display: block;"> </div>
+						<a href="https://fortislegalsupport.com" target="_blank" rel="noopener"><img src="https://i.imgur.com/YfrAfqs.png" alt="Fortis Legal Support Logo" width="96" height="93"></a>
+						<div style="width: 99%; height: 5px; line-height: 5px; overflow: hidden; padding: 0; margin: 0; font-size: 0px; display: block;"> </div>
+						</td>
+						</tr>
+						</tbody>
+						</table>
+						<div style="width: 100px; height: 5px; line-height: 5px; overflow: hidden; padding: 0; margin: 0; font-size: 0px; display: block;"> </div>
+						<table style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #999999; border-top: solid 1px #dadada;" border="0" width="100%" cellspacing="0" cellpadding="0">
+						<tbody>
+						<tr>
+						<td style="padding-top: 10px;">Confidentiality Warning: This e-mail contains information intended only for the use of the individual or entity named above. If the reader of this e-mail is not the intended recipient or the employee or agent responsible for delivering it to the intended recipient, any dissemination, publication or copying of this e-mail is strictly prohibited. The sender does not accept any responsibility for any loss, disruption or damage to your data or computer system that may occur while using data contained in, or transmitted with, this e-mail. If you have received this e-mail in error, please immediately notify us by return e-mail.</td>
+						</tr>
+						</tbody>
+						</table>
+						<div style="white-space: nowrap; font: 15px courier; line-height: 0;"> </div></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>FullJob Statud Email</td>
+					<td>Job Status Regarding {{Servee}}, Your File# {{JobScreenLawFirmJobRef}} {{JobScreenCompanyJobRef}}</td>
+					<td>
+						<textarea><p>Our Job#:  {{JobNum}}<br>Your Ref#: {{JobScreenLawFirmJobRef}} {{JobScreenCompanyJobRef}}<strong> </strong> <br>Recipient:  {{Servee}}</p>
+						<p><span>{{Remarks}}</span></p>
+						<p>Please <a href="{{fjslink}}" target="_blank" rel="noopener">Click Here</a> For Job Status On This Job. <br><br>If you have any questions, please contact our office at <strong>(678) 592 7902</strong> or <strong>kgoggins@fortislegalsupport.com</strong><br><br></p>
+						<table style="font-family: Arial, Verdana, sans-serif, Tahoma, 'Times New Roman', 'Trebuchet MS'; font-size: 12px; color: #434343; line-height: 16px;" border="0" cellspacing="0" cellpadding="0">
+						<tbody>
+						<tr>
+						<td align="left" valign="middle" nowrap="nowrap"><strong>Fortis Legal Support</strong>
+						<div style="width: 99%; height: 5px; line-height: 5px; overflow: hidden; padding: 0; margin: 0; font-size: 0px; display: block;"> </div>
+						1201 W Peachtree St NE, Bldg 400, Su. 100, Atlanta, GA 30309-3400<br><span style="color: #000000;"><strong>T</strong>: </span><a style="color: #434343; text-decoration: none;" href="tel:(678) 592 7902
+						"><span style="text-decoration: none;">(678) 592 7902</span></a> | <span style="color: #000000;"><strong>E</strong>: </span><a style="color: #434343; text-decoration: none;" href="mailto:kgoggins@fortislegalsupport.com"><span style="text-decoration: none;">kgoggins@fortislegalsupport.com</span></a> <br><span style="color: #000000;"><strong>W</strong>: </span><a style="color: #434343; text-decoration: none;" href="https://fortislegalsupport.com" target="_blank" rel="noopener"><span style="text-decoration: none;">fortislegalsupport.com</span></a><br>
+						<div style="width: 99%; height: 5px; line-height: 5px; overflow: hidden; padding: 0; margin: 0; font-size: 0px; display: block;"> </div>
+						<a href="https://fortislegalsupport.com" target="_blank" rel="noopener"><img src="https://i.imgur.com/YfrAfqs.png" alt="Fortis Legal Support Logo" width="96" height="93"></a>
+						<div style="width: 99%; height: 5px; line-height: 5px; overflow: hidden; padding: 0; margin: 0; font-size: 0px; display: block;"> </div>
+						</td>
+						</tr>
+						</tbody>
+						</table>
+						<div style="width: 100px; height: 5px; line-height: 5px; overflow: hidden; padding: 0; margin: 0; font-size: 0px; display: block;"> </div>
+						<table style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #999999; border-top: solid 1px #dadada;" border="0" width="100%" cellspacing="0" cellpadding="0">
+						<tbody>
+						<tr>
+						<td style="padding-top: 10px;">Confidentiality Warning: This e-mail contains information intended only for the use of the individual or entity named above. If the reader of this e-mail is not the intended recipient or the employee or agent responsible for delivering it to the intended recipient, any dissemination, publication or copying of this e-mail is strictly prohibited. The sender does not accept any responsibility for any loss, disruption or damage to your data or computer system that may occur while using data contained in, or transmitted with, this e-mail. If you have received this e-mail in error, please immediately notify us by return e-mail.</td>
+						</tr>
+						</tbody>
+						</table></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>Request Update from Server</td>
+					<td>Urgent: Update(s) Required Immediately</td>
+					<td>
+						<textarea><p>{{TableStyle}}border: 1px solid black; border-collapse: collapse; color: black; background-color: white;{{/TableStyle}}{{RowBgStyle}}background-color: white; border: 1px solid black;{{/RowBgStyle}}{{RowAltStyle}}background-color:#fbd6d2; border: 1px solid black;{{/RowAltStyle}}{{TdStyle}}border: 1px solid black;{{/TdStyle}}{{ThStyle}}border: 1px solid black;{{/ThStyle}}We Urgently Need An Update On The Following Job(s).</p>
+						<p>{{LoopingTableRows}}{{JobNum}}~{{DueDate}}~{{Servee}}~{{ActiveAddr}}~{{ActiveAddr1}}~{{ActiveCity}}~{{ActiveState}}~{{ActiveZip}}{{/LoopingTableRows}}</p>
+						<p><b>{{Remarks}}</b></p>
+						<p><br>If you have any questions, please contact our office at <strong>(678) 592 7902</strong> or <strong>kgoggins@fortislegalsupport.com</strong></p>
+						<table style="font-family: Arial, Verdana, sans-serif, Tahoma, 'Times New Roman', 'Trebuchet MS'; font-size: 12px; color: #434343; line-height: 16px;" border="0" cellspacing="0" cellpadding="0">
+						<tbody>
+						<tr>
+						<td align="left" valign="middle" nowrap="nowrap"><strong>Fortis Legal Support</strong>
+						<div style="width: 99%; height: 5px; line-height: 5px; overflow: hidden; padding: 0; margin: 0; font-size: 0px; display: block;"> </div>
+						1201 W Peachtree St NE, Bldg 400, Su. 100, Atlanta, GA 30309-3400<br><span style="color: #000000;"><strong>T</strong>: </span><a style="color: #434343; text-decoration: none;" href="tel:(678) 592 7902
+						"><span style="text-decoration: none;">(678) 592 7902</span></a> | <span style="color: #000000;"><strong>E</strong>: </span><a style="color: #434343; text-decoration: none;" href="mailto:kgoggins@fortislegalsupport.com"><span style="text-decoration: none;">kgoggins@fortislegalsupport.com</span></a> <br><span style="color: #000000;"><strong>W</strong>: </span><a style="color: #434343; text-decoration: none;" href="https://fortislegalsupport.com" target="_blank" rel="noopener"><span style="text-decoration: none;">fortislegalsupport.com</span></a><br>
+						<div style="width: 99%; height: 5px; line-height: 5px; overflow: hidden; padding: 0; margin: 0; font-size: 0px; display: block;"> </div>
+						<a href="https://fortislegalsupport.com" target="_blank" rel="noopener"><img src="https://i.imgur.com/YfrAfqs.png" alt="Fortis Legal Support Logo" width="96" height="93"></a>
+						<div style="width: 99%; height: 5px; line-height: 5px; overflow: hidden; padding: 0; margin: 0; font-size: 0px; display: block;"> </div>
+						</td>
+						</tr>
+						</tbody>
+						</table>
+						<table style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #999999; border-top: solid 1px #dadada;" border="0" width="100%" cellspacing="0" cellpadding="0">
+						<tbody>
+						<tr>
+						<td style="padding-top: 10px;">Confidentiality Warning: This e-mail contains information intended only for the use of the individual or entity named above. If the reader of this e-mail is not the intended recipient or the employee or agent responsible for delivering it to the intended recipient, any dissemination, publication or copying of this e-mail is strictly prohibited. The sender does not accept any responsibility for any loss, disruption or damage to your data or computer system that may occur while using data contained in, or transmitted with, this e-mail. If you have received this e-mail in error, please immediately notify us by return e-mail.</td>
+						</tr>
+						</tbody>
+						</table></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>Email Service Packet</td>
+					<td>Service Pack - New Job Assignment - {{Servee}}</td>
+					<td>
+						<textarea><p>A new job has been assigned to you. <br><br>Job Number:  <strong>{{JobNum}}</strong><br>Court:  <strong>{{Court}}</strong><br>Address<strong>: {{ActiveAddr}} {{ActiveAddr1}} {{ActiveCity}} {{ActiveState}} {{ActiveZip}}</strong> <br>Recipient:  <strong>{{Servee}}</strong><br>Due Date:  <strong>{{DueDate}}</strong><br>Special Instructions:  <strong>{{WorkOrderComments}}</strong></p>
+						<p><span>{{Remarks}}</span></p>
+						<p>Please  <a href="{{downloadlink}}" target="_blank" rel="noopener">Click Here</a> To Download Documents</p>
+						<p>If you have any questions, please contact our office at <strong>(678) 592 7902</strong> or <strong>kgoggins@fortislegalsupport.com</strong></p>
+						<table style="font-family: Arial, Verdana, sans-serif, Tahoma, 'Times New Roman', 'Trebuchet MS'; font-size: 12px; color: #434343; line-height: 16px;" border="0" cellspacing="0" cellpadding="0">
+						<tbody>
+						<tr>
+						<td align="left" valign="middle" nowrap="nowrap"><strong>Fortis Legal Support</strong>
+						<div style="width: 99%; height: 5px; line-height: 5px; overflow: hidden; padding: 0; margin: 0; font-size: 0px; display: block;"> </div>
+						1201 W Peachtree St NE, Bldg 400, Su. 100, Atlanta, GA 30309-3400<br><span style="color: #000000;"><strong>T</strong>: </span><a style="color: #434343; text-decoration: none;" href="tel:(678) 592 7902
+						"><span style="text-decoration: none;">(678) 592 7902</span></a> | <span style="color: #000000;"><strong>E</strong>: </span><a style="color: #434343; text-decoration: none;" href="mailto:kgoggins@fortislegalsupport.com"><span style="text-decoration: none;">kgoggins@fortislegalsupport.com</span></a> <br><span style="color: #000000;"><strong>W</strong>: </span><a style="color: #434343; text-decoration: none;" href="https://fortislegalsupport.com" target="_blank" rel="noopener"><span style="text-decoration: none;">fortislegalsupport.com</span></a><br>
+						<div style="width: 99%; height: 5px; line-height: 5px; overflow: hidden; padding: 0; margin: 0; font-size: 0px; display: block;"> </div>
+						<a href="https://fortislegalsupport.com" target="_blank" rel="noopener"><img src="https://i.imgur.com/YfrAfqs.png" alt="Fortis Legal Support Logo" width="96" height="93"></a>
+						<div style="width: 99%; height: 5px; line-height: 5px; overflow: hidden; padding: 0; margin: 0; font-size: 0px; display: block;"> </div>
+						</td>
+						</tr>
+						</tbody>
+						</table>
+						<div style="width: 100px; height: 5px; line-height: 5px; overflow: hidden; padding: 0; margin: 0; font-size: 0px; display: block;"> </div>
+						<table style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #999999; border-top: solid 1px #dadada;" border="0" width="100%" cellspacing="0" cellpadding="0">
+						<tbody>
+						<tr>
+						<td style="padding-top: 10px;">Confidentiality Warning: This e-mail contains information intended only for the use of the individual or entity named above. If the reader of this e-mail is not the intended recipient or the employee or agent responsible for delivering it to the intended recipient, any dissemination, publication or copying of this e-mail is strictly prohibited. The sender does not accept any responsibility for any loss, disruption or damage to your data or computer system that may occur while using data contained in, or transmitted with, this e-mail. If you have received this e-mail in error, please immediately notify us by return e-mail.</td>
+						</tr>
+						</tbody>
+						</table></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>Auto Completion Email</td>
+					<td>Job Completed - {{Servee}}</td>
+					<td>
+						<textarea><p>THIS JOB HAS BEEN CLOSED: <strong>{{MannerName}}</strong><br><br>Our Job Number: <strong>{{JobNum}}</strong><br><br>Reference Number(s): <strong>{{CaseScreenCompanyJobRef}}</strong> <strong>{{CaseScreenLawFirmJobRef}}</strong> <strong>{{JobScreenLawFirmJobRef}}</strong> <strong>{{JobScreenCompanyJobRef}}</strong><br><br><strong>{{Plaintiff}}</strong><br>v<br><strong>{{Defendant}}</strong><br><br>Case No: <strong>{{CaseNo}}</strong><br><br>Person to serve: <strong>{{Servee}}</strong><br><br>Address:</p>
+						<p><strong>{{ActiveAddr}}</strong> <strong>{{ActiveAddr1}}</strong></p>
+						<p><strong>{{ActiveCity}}</strong> <strong>{{ActiveState}}</strong> <strong>{{ActiveZip}}</strong></p>
+						<p>How Completed: <strong>{{MannerName}}</strong><br><br>Date Completed: <strong>{{DateCompleted}}</strong><br>Time Completed: <strong>{{TimeCompleted}}</strong><br><br>Process Server Name: <strong>{{SubServer}}</strong><br><br>Person Left With: <strong>{{PersonLeftWith}}</strong><br>Title: <strong>{{PersonLeftWithTitle}}</strong><br>Comments: <strong>{{ServiceComments}}</strong><br><br>Description of person left with (if served):<br><br>Sex: <strong>{{Sex}}</strong><br>Hair: <strong>{{Hair}}</strong><br>Age: <strong>{{Age}}</strong><br>Skin: <strong>{{Skin}}</strong><br>Height: <strong>{{Height}}</strong><br>Weight: <strong>{{Weight}}</strong><br>Other:  <strong>{{Other}}</strong><br><br>For More Information, Please <a href="{{killerlink}}" target="_blank" rel="noopener">Click Here</a><br><br>If you have any questions, please contact our office at <strong>(678) 592 7902</strong> or <strong>kgoggins@fortislegalsupport.com</strong></p>
+						<table style="font-family: Arial, Verdana, sans-serif, Tahoma, 'Times New Roman', 'Trebuchet MS'; font-size: 12px; color: #434343; line-height: 16px;" border="0" cellspacing="0" cellpadding="0">
+						<tbody>
+						<tr>
+						<td align="left" valign="middle" nowrap="nowrap"><strong>Fortis Legal Support</strong>
+						<div style="width: 99%; height: 5px; line-height: 5px; overflow: hidden; padding: 0; margin: 0; font-size: 0px; display: block;"> </div>
+						1201 W Peachtree St NE, Bldg 400, Su. 100, Atlanta, GA 30309-3400<br><span style="color: #000000;"><strong>T</strong>: </span><a style="color: #434343; text-decoration: none;" href="tel:(678) 592 7902
+						"><span style="text-decoration: none;">(678) 592 7902</span></a> | <span style="color: #000000;"><strong>E</strong>: </span><a style="color: #434343; text-decoration: none;" href="mailto:kgoggins@fortislegalsupport.com"><span style="text-decoration: none;">kgoggins@fortislegalsupport.com</span></a> <br><span style="color: #000000;"><strong>W</strong>: </span><a style="color: #434343; text-decoration: none;" href="https://fortislegalsupport.com" target="_blank" rel="noopener"><span style="text-decoration: none;">fortislegalsupport.com</span></a><br>
+						<div style="width: 99%; height: 5px; line-height: 5px; overflow: hidden; padding: 0; margin: 0; font-size: 0px; display: block;"> </div>
+						<a href="https://fortislegalsupport.com" target="_blank" rel="noopener"><img src="https://i.imgur.com/YfrAfqs.png" alt="Fortis Legal Support Logo" width="96" height="93"></a>
+						<div style="width: 99%; height: 5px; line-height: 5px; overflow: hidden; padding: 0; margin: 0; font-size: 0px; display: block;"> </div>
+						</td>
+						</tr>
+						</tbody>
+						</table>
+						<div style="width: 100px; height: 5px; line-height: 5px; overflow: hidden; padding: 0; margin: 0; font-size: 0px; display: block;"> </div>
+						<table style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #999999; border-top: solid 1px #dadada;" border="0" width="100%" cellspacing="0" cellpadding="0">
+						<tbody>
+						<tr>
+						<td style="padding-top: 10px;">Confidentiality Warning: This e-mail contains information intended only for the use of the individual or entity named above. If the reader of this e-mail is not the intended recipient or the employee or agent responsible for delivering it to the intended recipient, any dissemination, publication or copying of this e-mail is strictly prohibited. The sender does not accept any responsibility for any loss, disruption or damage to your data or computer system that may occur while using data contained in, or transmitted with, this e-mail. If you have received this e-mail in error, please immediately notify us by return e-mail.</td>
+						</tr>
+						</tbody>
+						</table></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>Custom Statement Email</td>
+					<td>A Statement Has Been Generated For You From Fortis Legal Support</td>
+					<td>
+						<textarea><p>Please <a href="{{downloadlink}}" target="_blank" rel="noopener">Click Here</a> To View And Pay Your Statement</p>
+						<p><strong>{{remarks}}</strong><br><br>If you have any questions, please contact our office at <strong>(678) 592 7902</strong> or <strong>kgoggins@fortislegalsupport.com</strong></p>
+						<table style="font-family: Arial, Verdana, sans-serif, Tahoma, 'Times New Roman', 'Trebuchet MS'; font-size: 12px; color: #434343; line-height: 16px;" border="0" cellspacing="0" cellpadding="0">
+						<tbody>
+						<tr>
+						<td align="left" valign="middle" nowrap="nowrap"><strong>Fortis Legal Support</strong>
+						<div style="width: 99%; height: 5px; line-height: 5px; overflow: hidden; padding: 0; margin: 0; font-size: 0px; display: block;"> </div>
+						1201 W Peachtree St NE, Bldg 400, Su. 100, Atlanta, GA 30309-3400<br><span style="color: #000000;"><strong>T</strong>: </span><a style="color: #434343; text-decoration: none;" href="tel:(678) 592 7902
+						"><span style="text-decoration: none;">(678) 592 7902</span></a> | <span style="color: #000000;"><strong>E</strong>: </span><a style="color: #434343; text-decoration: none;" href="mailto:kgoggins@fortislegalsupport.com"><span style="text-decoration: none;">kgoggins@fortislegalsupport.com</span></a> <br><span style="color: #000000;"><strong>W</strong>: </span><a style="color: #434343; text-decoration: none;" href="https://fortislegalsupport.com" target="_blank" rel="noopener"><span style="text-decoration: none;">fortislegalsupport.com</span></a><br>
+						<div style="width: 99%; height: 5px; line-height: 5px; overflow: hidden; padding: 0; margin: 0; font-size: 0px; display: block;"> </div>
+						<a href="https://fortislegalsupport.com" target="_blank" rel="noopener"><img src="https://i.imgur.com/YfrAfqs.png" alt="Fortis Legal Support Logo" width="96" height="93"></a>
+						<div style="width: 99%; height: 5px; line-height: 5px; overflow: hidden; padding: 0; margin: 0; font-size: 0px; display: block;"> </div>
+						</td>
+						</tr>
+						</tbody>
+						</table>
+						<div style="width: 100px; height: 5px; line-height: 5px; overflow: hidden; padding: 0; margin: 0; font-size: 0px; display: block;"> </div>
+						<table style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #999999; border-top: solid 1px #dadada;" border="0" width="100%" cellspacing="0" cellpadding="0">
+						<tbody>
+						<tr>
+						<td style="padding-top: 10px;">Confidentiality Warning: This e-mail contains information intended only for the use of the individual or entity named above. If the reader of this e-mail is not the intended recipient or the employee or agent responsible for delivering it to the intended recipient, any dissemination, publication or copying of this e-mail is strictly prohibited. The sender does not accept any responsibility for any loss, disruption or damage to your data or computer system that may occur while using data contained in, or transmitted with, this e-mail. If you have received this e-mail in error, please immediately notify us by return e-mail.</td>
+						</tr>
+						</tbody>
+						</table></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>Manual Document Email</td>
+					<td>Job #{{JobNum}} - {{Servee}} -- Please See Attached Affidavit(s)</td>
+					<td>
+						<textarea><p><span><span></span></span><span></span>Recipient: <strong>{{Servee}}</strong></p>
+						<p>Your File #<strong>{{JobScreenCompanyJobRef}}{{JobScreenLawFirmJobRef}}</strong><br><br>The following document(s) have been emailed to you on the above references job. <br><br>Please Click on the DocID To View/Print The Document:<br><br>{{tableofdocuments}} <br><br><strong>{{remarks}}</strong><br><br>If you have any questions, please contact our office at <strong>(678) 592 7902</strong> or <strong>kgoggins@fortislegalsupport.com</strong><br><br></p>
+						<table style="font-family: Arial, Verdana, sans-serif, Tahoma, 'Times New Roman', 'Trebuchet MS'; font-size: 12px; color: #434343; line-height: 16px;" border="0" cellspacing="0" cellpadding="0">
+						<tbody>
+						<tr>
+						<td align="left" valign="middle" nowrap="nowrap"><strong>Fortis Legal Support</strong>
+						<div style="width: 99%; height: 5px; line-height: 5px; overflow: hidden; padding: 0; margin: 0; font-size: 0px; display: block;"> </div>
+						1201 W Peachtree St NE, Bldg 400, Su. 100, Atlanta, GA 30309-3400<br><span style="color: #000000;"><strong>T</strong>: </span><a style="color: #434343; text-decoration: none;" href="tel:(678) 592 7902
+						"><span style="text-decoration: none;">(678) 592 7902</span></a> | <span style="color: #000000;"><strong>E</strong>: </span><a style="color: #434343; text-decoration: none;" href="mailto:kgoggins@fortislegalsupport.com"><span style="text-decoration: none;">kgoggins@fortislegalsupport.com</span></a> <br><span style="color: #000000;"><strong>W</strong>: </span><a style="color: #434343; text-decoration: none;" href="https://fortislegalsupport.com" target="_blank" rel="noopener"><span style="text-decoration: none;">fortislegalsupport.com</span></a><br>
+						<div style="width: 99%; height: 5px; line-height: 5px; overflow: hidden; padding: 0; margin: 0; font-size: 0px; display: block;"> </div>
+						<a href="https://fortislegalsupport.com" target="_blank" rel="noopener"><img src="https://i.imgur.com/YfrAfqs.png" alt="Fortis Legal Support Logo" width="96" height="93"></a>
+						<div style="width: 99%; height: 5px; line-height: 5px; overflow: hidden; padding: 0; margin: 0; font-size: 0px; display: block;"> </div>
+						</td>
+						</tr>
+						</tbody>
+						</table>
+						<table style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #999999; border-top: solid 1px #dadada;" border="0" width="100%" cellspacing="0" cellpadding="0">
+						<tbody>
+						<tr>
+						<td style="padding-top: 10px;">Confidentiality Warning: This e-mail contains information intended only for the use of the individual or entity named above. If the reader of this e-mail is not the intended recipient or the employee or agent responsible for delivering it to the intended recipient, any dissemination, publication or copying of this e-mail is strictly prohibited. The sender does not accept any responsibility for any loss, disruption or damage to your data or computer system that may occur while using data contained in, or transmitted with, this e-mail. If you have received this e-mail in error, please immediately notify us by return e-mail.</td>
+						</tr>
+						</tbody>
+						</table></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>Custom Email for Invitation To Collaberate</td>
+					<td></td>
+					<td>
+						<textarea></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>Server Credential Email</td>
+					<td></td>
+					<td>
+						<textarea></textarea>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js" ></script>
+<script>
+  $(document).ready(function() {
+  	$('#table').DataTable();
+	$('#table').on('click', 'td:nth-child(2)', function () { 
+    const textToCopy = $(this).html().trim();
+
+    if (textToCopy) { 
+        navigator.clipboard.writeText(textToCopy).then(
+            () => {
+                // alert(`Copied: ${textToCopy}`);
+            },
+            (err) => {
+                console.error('Error copying text: ', err);
+            }
+        );
+    } else {
+        alert('No text to copy.');
+    }
+    });
+	$('#table').on('click', 'textarea', function () { 
+    const textToCopy = $(this).val().trim();
+
+    if (textToCopy) { 
+        navigator.clipboard.writeText(textToCopy).then(
+            () => {
+                // alert(`Copied: ${textToCopy}`);
+            },
+            (err) => {
+                console.error('Error copying text: ', err);
+            }
+        );
+    } else {
+        alert('No text to copy.');
+    }
+    });
+  });
+</script>
+</body>
+</html>

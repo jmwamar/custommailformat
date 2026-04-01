@@ -1,0 +1,420 @@
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css" rel="stylesheet"/>
+    <style>
+		table > tbody >tr> td:nth-child(2):hover, 
+	    table > tbody >tr> td:nth-child(3):hover {
+	        cursor: pointer;
+	        background-color: pink;
+	    }
+	</style>
+    
+</head>
+<body>
+	<div class="container">
+		<table class="table table-bordered" id="table">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>HandleBar</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>AttorneyFor</td>
+					<td>{{job.custom.affidavit_detail.attorney_for}}</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>amendedaff</td>
+					<td>{{job.amendedaff}}</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>CaseNo</td>
+					<td>{{court_case.number}}</td>
+					<td>Used on Index No /  Case Number</td>
+				</tr>
+				<tr>
+					<td>CertifiedNum</td>
+					<td>{{job.certifiednum}}</td>
+					<td>{{#if job.certifiednum}} {{job.certifiednum}} {{/if}}</td>
+				</tr>
+				<tr>
+					<td>Client</td>
+					<td>{{client_company.name}}</td>
+					<td> </td>
+				</tr>
+				<tr>
+					<td>ClientAddress</td>
+					<td>{{client_company.address1}}</td>
+					<td> </td>
+				</tr>
+				<tr>
+					<td>Court</td>
+					<td>{{#ifEquals court_case.court_name "BLANK"}}{{else}}{{#each court}}{{name}}{{^last}}<br/>{{/last}}{{/each}}{{/ifEquals}}</td>
+					<td> </td>
+				</tr>
+				<tr>
+					<td>CourtCounty</td>
+					<td>{{court_case.court_county}}</td>
+					<td> </td>
+				</tr>
+				<tr>
+					<td>Court Date</td>
+					<td>{{#ifEquals job.custom.affidavit_detail.hearing_date ""}}{{else}}{{job.custom.affidavit_detail.hearing_date}}{{/ifEquals}}</td>
+					<td> </td>
+				</tr>
+				<tr>
+					<td>Ref. No. or File No.:</td>
+					<td>{{job.custom.affidavit_detail.client_matter_no}}</td>
+					<td> Found in Proof of Service by Mail </td>
+				</tr>
+				<tr>
+					<td>ClientCompanyAddress</td>
+					<td>{{client_company.address1}}{{#if client_company.address2}}, {{client_company.address2}}{{/if}}</td>
+					<td> </td>
+				</tr>
+				<tr>
+					<td>Completed and Orig Full Address</td>
+					<td>{{last_attempt.address1}}{{#if last_attempt.address2}}, {{last_attempt.address2}}{{/if}}, {{last_attempt.city}}, {{last_attempt.state}} {{last_attempt.postal_code}}</td>
+					<td> </td>
+				</tr>
+				<tr>
+					<td>CompletedCity</td>
+					<td>{{last_attempt.city}} </td>
+					<td> </td>
+				</tr>
+				<tr>
+					<td>CompletedAddr</td>
+					<td>{{last_attempt.address1}}</td>
+					<td> </td>
+				</tr>
+				<tr>
+					<td>CompletedState</td>
+					<td>{{last_attempt.state}}</td>
+					<td> </td>
+				</tr>
+				<tr>
+					<td>CompletedZip</td>
+					<td>{{last_attempt.postal_code}}</td>
+					<td> </td>
+				</tr>
+				<tr>
+					<td>Company</td>
+					<td>{{agency.name}}</td>
+					<td>The Agency also</td>
+				</tr>
+				<tr>
+					<td>CompanyEmail</td>
+					<td>{{agency.email}}</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>CompanyAddress</td>
+					<td>{{agency.address1}}{{#if agency.address2}}, {{agency.address2}}{{/if}}<br/>
+            {{agency.city}} {{agency.state}} {{agency.postal_code}}</td>
+					<td> </td>
+				</tr>
+				<tr>
+					<td>DateCompleted</td>
+					<td>{{job.dateserved}}</td>
+					<td> </td>
+				</tr>
+				<tr>
+					<td>DateRec</td>
+					<td>{{job.date_rec}}</td>
+					<td> </td>
+				</tr>
+				<tr>
+					<td>DateFiled</td>
+					<td>{{court_case.datefiled}}</td>
+					<td>Sometimes used on S & C Filed:</td>
+				</tr>
+				<tr>
+					<td>DateMailed</td>
+					<td>{{job.datemailed}}</td>
+					<td> </td>
+				</tr>
+				<tr>
+					<td>Defendant</td>
+					<td>{{court_case.defendant}}</td>
+					<td>if datemailed like "a copy was mailed in a sealed envelope adrresed to" use this as the name</td>
+				</tr>
+				<tr>
+					<td>DefendantRole</td>
+					<td>{{court_case.defendantrole}}</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Documents</td>
+					<td>{{#documents_to_be_served}} {{title}}{{^last}}; {{/last}} {{/documents_to_be_served}}</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Mortgagor</td>
+					<td>NONE YET</td>
+					<td>OUT OF STATE SENDAWAY PERSONAL</td>
+				</tr>
+				<tr>
+					<td>from/fromcompany</td>
+					<td>{{agency.name}}</td>
+					<td> </td>
+				</tr>
+				<tr>
+					<td>from/fromaddress</td>
+					<td>{{agency.address1}}</td>
+					<td> </td>
+				</tr>
+				<tr>
+					<td>Holder</td>
+					<td>{{job.holder}}</td>
+					<td> </td>
+				</tr>
+				<tr>
+					<td>JobNum</td>
+					<td>{{job.id}}</td>
+					<td>Sometimes used on Internal Id: or Job#</td>
+				</tr>
+				<tr>
+					<td>LawFirmJobRef</td>
+					<td>{{job.client_job_number}}</td>
+					<td>Used on Att File: </td>
+				</tr>
+				<tr>
+					<td>PlaintiffRole</td>
+					<td>{{court_case.plaintiffrole}}</td>
+					<td>Used on Att File: </td>
+				</tr>
+				<tr>
+					<td>Manner</td>
+					<td>{{realmanner}}</td>
+					<td>Used on Att File: </td>
+				</tr>
+				<tr>
+					<td>License</td>
+					<td>{{job.process_server_license}}</td>
+					<td>{{#ifEquals job.process_server_license "NONE"}}{{else}}
+                  		<div class="editable" contenteditable="true" spellcheck="true" data-medium-editor-element="true" role="textbox" aria-multiline="true" medium-editor-index="26">
+	                     License#: {{job.process_server_license}}
+	                   </div>
+                  		{{/ifEquals}}
+              		</td>
+				</tr>
+				<tr>
+					<td>NtDT</td>
+					<td>{{job.donotary}}</td>
+					<td>{{#ifEquals job.donotary "1"}} {{else}} {{/ifEquals}}</td>
+				</tr>
+				<tr>
+					<td>NotaryState</td>
+					<td>{{job.juratstate}}</td>
+					<td> </td>
+				</tr>
+				<tr>
+					<td>NotaryCounty</td>
+					<td>{{job.juratcounty}}</td>
+					<td> </td>
+				</tr>
+				<tr>
+					<td>NotaryDate</td>
+					<td>{{job.notarydate}}</td>
+					<td> </td>
+				</tr>
+				<tr>
+					<td>NotaryDate</td>
+					<td>{{job.notarydatenice}}</td>
+					<td>Format : October 30th, 2024</td>
+				</tr>
+				<tr>
+					<td>NotaryDate</td>
+					<td>{{job.notarydatenicer}}</td>
+					<td>Format : 30th day of October, 2024</td>
+				</tr>
+				<tr>
+					<td>OrigCity</td>
+					<td>{{last_attempt.city}}</td>
+					<td> </td>
+				</tr>
+				<tr>
+					<td>Plaintiff</td>
+					<td>{{court_case.plaintiff}}</td>
+					<td> </td>
+				</tr>
+				<tr>
+					<td>RightNowDate</td>
+					<td>{{job.rightnowdate}}</td>
+					<td>{{job.longrightnowdate}}</td>
+				</tr>
+				<tr>
+					<td>ServiceComments</td>
+					<td>{{job.servicecomments}} </td>
+					<td> {{#if job.servicecomments}}{{job.servicecomments}}{{/if}}</td>
+				</tr>
+				<tr>
+					<td>SubServer</td>
+					<td>{{job.process_server_name}}</td>
+					<td>if it is the name of someone signing something it is usually the subserver</td>
+				</tr>
+				<tr>
+					<td>SubServer</td>
+					<td>{{last_attempt.process_server_name}}</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Server</td>
+					<td>{{job.process_server_company}}</td>
+					<td>but if it is the part saying the name and address of who it is assigned to then it is usually the server</td>
+				</tr>
+				<tr>
+					<td>ServerPhone</td>
+					<td>{{job.psephone}}</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>ServerAddress</td>
+					<td>{{job.pseaddr}}{{#if job.pseaddr1}}, {{job.pseaddr1}}{{/if}}<br/>{{job.psecity}} {{job.psestate}} {{job.psezip}}</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>ServerEmail</td>
+					<td>{{job.pseemail}}</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>ServerFax</td>
+					<td>{{job.psefax}}</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Servee</td>
+					<td>{{recipient.name}} </td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>ServeeRole</td>
+					<td>{{recipient.role}}</td>
+					<td></td>
+				</tr>
+
+				<tr>
+					<td>DueServe</td>
+					<td>{{job.due_date}}</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Height</td>
+					<td>{{last_attempt.recipient_height}}</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Sex</td>
+					<td>{{last_attempt.recipient_gender}}</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Skin</td>
+					<td>{{last_attempt.recipient_ethnicity}}</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Hair</td>
+					<td>{{last_attempt.recipient_hair}}</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Weight</td>
+					<td>{{last_attempt.recipient_weight}}</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>OtherFeatures</td>
+					<td>{{last_attempt.recipient_other}}</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Age</td>
+					<td>{{last_attempt.recipient_age}}</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Judge</td>
+					<td>{{court_case.judge}}</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>PersonLeftWith</td>
+					<td>{{last_attempt.drecipient_name}}</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>PersonLeftWithTitle</td>
+					<td>{{last_attempt.recipient_relationship}}</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>WorkOrderComments</td>
+					<td>{{job.service_instructions}}</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>JobType</td>
+					<td>{{job.jobtype}}</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>DepoHrgDate</td>
+					<td>{{job.hrg_date}}</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>DepoHrgDate</td>
+					<td>{{job.regcounty}}</td>
+					<td>bottom signature ex MC-7238, Maricopa County, that is the county of the subserver's registration.</td>
+				</tr>
+				<tr>
+					<td>BARCODE</td>
+					<td>{{code39barcode}}</td>
+					<td><img src="data:image/png;base64,{{code39barcode}}" alt="A sample base64-encoded image"> </td>
+				</tr>
+				<tr>
+					<td>JobBasedClientFileNum or ClientFileNum</td>
+					<td>{{job.custom.affidavit_detail.client_matter_no}}</td>
+					<td>{{#if job.custom.affidavit_detail.client_matter_no}}
+                    <div class="editable" style="margin-top: 1em;" role="textbox" contenteditable="true" spellcheck="true" data-medium-editor-element="true" aria-multiline="true">Atty File#: {{job.custom.affidavit_detail.client_matter_no}}</div>
+                  {{/if}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js" ></script>
+<script>
+  $(document).ready(function() {
+  	$('#table').DataTable();
+	$('#table').on('click', 'td:nth-child(2), td:nth-child(3)', function () { 
+    const textToCopy = $(this).html().trim();
+
+    if (textToCopy) { 
+        navigator.clipboard.writeText(textToCopy).then(
+            () => {
+                // alert(`Copied: ${textToCopy}`);
+            },
+            (err) => {
+                console.error('Error copying text: ', err);
+            }
+        );
+    } else {
+        alert('No text to copy.');
+    }
+    });
+  });
+</script>
+</body>
+</html>
