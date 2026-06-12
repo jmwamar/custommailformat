@@ -65,6 +65,12 @@
 					<td>{{#ifEquals court_case.court_name "BLANK"}}{{else}}{{#each court}}{{name}}{{^last}}<br/>{{/last}}{{/each}}{{/ifEquals}}</td>
 					<td> </td>
 				</tr>
+				
+				<tr>
+					<td>Court 2</td>
+					<td>{{#ifEquals court_case.court_name "BLANK"}}{{else}}{{#each flcourt}}{{name}}{{^last}}<br/>{{/last}}{{/each}}{{/ifEquals}}</td>
+					<td> </td>
+				</tr>
 				<tr>
 					<td>CourtCounty</td>
 					<td>{{court_case.court_county}}</td>
