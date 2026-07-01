@@ -28,6 +28,60 @@
 			</thead>
 			<tbody>
 				<tr>
+					<td>Order Form Email</td>
+					<td>{{agencyname}} New Job #{{requestno}} Received Via Web Order Form</td>
+					<td>
+						<textarea>
+							<div style="max-width: 600px; margin: 0 auto; font-family: Arial,Helvetica,sans-serif; color: #333;">
+							<div style="background: #08599a; padding: 20px 24px; border-radius: 6px 6px 0 0;">
+							<h2 style="margin: 0; color: #ffffff; font-size: 20px;">{{agencyname}}</h2>
+							<p style="margin: 4px 0 0; color: #cfe0f0; font-size: 13px;">Order Confirmation</p>
+							</div>
+							<div style="border: 1px solid #e2e2e2; border-top: none; padding: 24px; border-radius: 0 0 6px 6px;">
+							<p style="font-size: 15px; margin-top: 0;">Dear {{contactname}},</p>
+							<p style="font-size: 14px; line-height: 1.5;">Thank you for your submission. We have received your service request and it has been assigned <strong>Request #{{requestno}}</strong>. A summary of your order is below.</p>
+							<table style="width: 100%; border-collapse: collapse; font-size: 13px; margin: 18px 0;">
+							<tbody>
+							<tr>
+							<td style="padding: 6px 8px; background: #f5f7fa; font-weight: bold; width: 40%;">Request #</td>
+							<td style="padding: 6px 8px;">{{requestno}}</td>
+							</tr>
+							<tr>
+							<td style="padding: 6px 8px; background: #f5f7fa; font-weight: bold;">Company</td>
+							<td style="padding: 6px 8px;">{{companyname}}</td>
+							</tr>
+							<tr>
+							<td style="padding: 6px 8px; background: #f5f7fa; font-weight: bold;">Court</td>
+							<td style="padding: 6px 8px;">{{courtname}} — {{courtcounty}}</td>
+							</tr>
+							<tr>
+							<td style="padding: 6px 8px; background: #f5f7fa; font-weight: bold;">Case Number</td>
+							<td style="padding: 6px 8px;">{{casenumber}}</td>
+							</tr>
+							<tr>
+							<td style="padding: 6px 8px; background: #f5f7fa; font-weight: bold;">Plaintiff</td>
+							<td style="padding: 6px 8px;">{{plaintiff}}</td>
+							</tr>
+							<tr>
+							<td style="padding: 6px 8px; background: #f5f7fa; font-weight: bold;">Defendant</td>
+							<td style="padding: 6px 8px;">{{defendant}}</td>
+							</tr>
+							<tr>
+							<td style="padding: 6px 8px; background: #f5f7fa; font-weight: bold;">Recipient</td>
+							<td style="padding: 6px 8px;">{{recipientname}}</td>
+							</tr>
+							</tbody>
+							</table>
+							<p style="font-size: 14px; line-height: 1.5;"><strong>Service Address</strong><br>{{address1}}<br>{{address2}}<br>{{city}}, {{state}} {{zip}}</p>
+							<p style="text-align: center; margin: 26px 0;"><a href="{{invoicelink}}" style="background: #08599a; color: #ffffff; text-decoration: none; padding: 11px 26px; border-radius: 5px; font-size: 14px; display: inline-block;"> View Invoice </a></p>
+							<p style="font-size: 13px; color: #666; line-height: 1.5; border-top: 1px solid #eee; padding-top: 16px;">If you have any questions about this order, reply to this email or contact us at {{companyemail}} / {{phone}}.</p>
+							<p style="font-size: 13px; color: #666; margin-bottom: 0;">Thank you,<br><strong>{{agencyname}}</strong></p>
+							</div>
+							</div>
+						</textarea>
+					</td>
+				</tr> 
+				<tr>
 					<td>Confirmation Email</td>
 					<td>Job Received For Service Upon: {{Servee}}</td>
 					<td>
