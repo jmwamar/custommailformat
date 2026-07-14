@@ -24,9 +24,173 @@
 					<th>Name</th>
 					<th>Subject (click auto copy)</th>
 					<th>Body (click auto copy)</th> 
+					<th>Reply To (click auto copy)</th> 
+					<th>Reply Name (click auto copy)</th> 
 				</tr>
 			</thead>
 			<tbody>
+				<tr>
+					<td>FedEx Print & Go Email</td>
+					<td>Print & Go - Job {{JobNum}} - {{DocCount}} document(s)</td>
+					<td>
+						<textarea>
+							<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background: #f4f6f8; padding: 24px 0; font-family: Arial,Helvetica,sans-serif;">
+								<tbody>
+								<tr>
+								<td align="center">
+								<table width="600" cellpadding="0" cellspacing="0" border="0" style="background: rgb(255, 255, 255); border: 1px solid rgb(226, 230, 234); border-radius: 6px; overflow: hidden; height: 345.992px;">
+								<tbody>
+								<tr style="height: 25.1953px;">
+								<td style="background: rgb(77, 20, 140); padding: 18px 24px; height: 25.1953px;"><span style="color: #ffffff; font-size: 18px; font-weight: bold; letter-spacing: .5px;">PRINT &amp; GO</span> <span style="color: #ff6600; font-size: 18px; font-weight: bold;"> • JOB {{JobNum}}</span></td>
+								</tr>
+								<tr style="height: 85.9375px;">
+								<td style="padding: 24px 24px 12px; color: rgb(33, 37, 41); font-size: 15px; line-height: 1.6; height: 85.9375px;">
+								<p style="margin: 0 0 14px 0;">Hello,</p>
+								<p style="margin: 0;"><strong>{{DocCount}}</strong> document(s) for <strong>Job {{JobNum}}</strong> are attached to this email for FedEx Office Print &amp; Go.</p>
+								</td>
+								</tr>
+								<tr style="height: 119.609px;">
+								<td style="padding: 0px 24px 20px; height: 119.609px;">
+								<table width="100%" cellpadding="0" cellspacing="0" border="0" style="border: 1px solid #e9ecef; border-radius: 4px;">
+								<tbody>
+								<tr>
+								<td width="120" style="background: #f8f9fa; padding: 10px 14px; color: #6c757d; font-size: 13px; border-bottom: 1px solid #e9ecef;">Documents</td>
+								<td style="padding: 10px 14px; color: #212529; font-size: 13px; border-bottom: 1px solid #e9ecef;">{{Documents}}</td>
+								</tr>
+								<tr>
+								<td style="background: #f8f9fa; padding: 10px 14px; color: #6c757d; font-size: 13px; border-bottom: 1px solid #e9ecef;">Recipient</td>
+								<td style="padding: 10px 14px; color: #212529; font-size: 13px; border-bottom: 1px solid #e9ecef;">{{Servee}}</td>
+								</tr>
+								<tr>
+								<td style="background: #f8f9fa; padding: 10px 14px; color: #6c757d; font-size: 13px;">Case No.</td>
+								<td style="padding: 10px 14px; color: #212529; font-size: 13px;">{{CaseNo}}</td>
+								</tr>
+								</tbody>
+								</table>
+								</td>
+								</tr>
+								<tr style="height: 75.2734px;">
+								<td style="padding: 0px 24px 22px; height: 75.2734px;">
+								<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background: #fff8f0; border-left: 4px solid #ff6600; border-radius: 4px;">
+								<tbody>
+								<tr>
+								<td style="padding: 14px 16px; color: #212529; font-size: 14px; line-height: 1.6;"><strong style="color: #4d148c;">Please reply to this email with the retrieval code.</strong><br>The code will be entered at the copier to release these documents for printing.</td>
+								</tr>
+								</tbody>
+								</table>
+								</td>
+								</tr>
+								<tr style="height: 39.9766px;">
+								<td style="background: rgb(248, 249, 250); border-top: 1px solid rgb(226, 230, 234); padding: 14px 24px; color: rgb(134, 142, 150); font-size: 12px; line-height: 1.5; height: 39.9766px;">Sent by {{SenderName}} ({{SenderEmail}})<br>{{OurCompanyName}}</td>
+								</tr>
+								</tbody>
+								</table>
+								</td>
+								</tr>
+								</tbody>
+								</table>
+						</textarea>
+					</td>
+					<td>{{SenderEmail}}</td>
+					<td>{{SenderName}}</td>
+				</tr> 
+				<tr>
+					<td>Court Request Receipt Email</td>
+					<td>Court Request Received - #{{RequestNo}}</td>
+					<td>
+						<textarea>
+							<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background: #f4f6f8; padding: 24px 0; font-family: Arial,Helvetica,sans-serif;">
+								<tbody>
+								<tr>
+								<td align="center">
+								<table width="600" cellpadding="0" cellspacing="0" border="0" style="background: #ffffff; border: 1px solid #e2e6ea; border-radius: 6px; overflow: hidden;">
+								<tbody>
+								<tr>
+								<td style="background: #2c3e50; padding: 20px 24px;">
+								<div style="color: #ffffff; font-size: 18px; font-weight: bold;">Court Request Received</div>
+								<div style="color: #a9bdd0; font-size: 13px; padding-top: 4px;">Confirmation of your submission</div>
+								</td>
+								</tr>
+								<tr>
+								<td style="padding: 24px 24px 8px 24px; color: #212529; font-size: 15px; line-height: 1.6;">
+								<p style="margin: 0 0 4px 0;">Dear {{RequestorName}},</p>
+								<p style="margin: 0;">Your court request has been received and is being processed.</p>
+								</td>
+								</tr>
+								<tr>
+								<td style="padding: 16px 24px 20px 24px;">
+								<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background: #f1f5f9; border-radius: 4px;">
+								<tbody>
+								<tr>
+								<td align="center" style="padding: 16px;">
+								<div style="color: #64748b; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Request Number</div>
+								<div style="color: #2c3e50; font-size: 26px; font-weight: bold; padding-top: 6px;">#{{RequestNo}}</div>
+								</td>
+								</tr>
+								</tbody>
+								</table>
+								</td>
+								</tr>
+								<tr>
+								<td style="padding: 0 24px 20px 24px;">
+								<table width="100%" cellpadding="0" cellspacing="0" border="0" style="border: 1px solid #e9ecef; border-radius: 4px;">
+								<tbody>
+								<tr>
+								<td width="140" style="background: #f8f9fa; padding: 10px 14px; color: #6c757d; font-size: 13px; border-bottom: 1px solid #e9ecef;">Court</td>
+								<td style="padding: 10px 14px; color: #212529; font-size: 13px; border-bottom: 1px solid #e9ecef;">{{Court}} — {{CourtCounty}}</td>
+								</tr>
+								<tr>
+								<td style="background: #f8f9fa; padding: 10px 14px; color: #6c757d; font-size: 13px; border-bottom: 1px solid #e9ecef;">Case / Index No.</td>
+								<td style="padding: 10px 14px; color: #212529; font-size: 13px; border-bottom: 1px solid #e9ecef;">{{CaseNo}}</td>
+								</tr>
+								<tr>
+								<td style="background: #f8f9fa; padding: 10px 14px; color: #6c757d; font-size: 13px; border-bottom: 1px solid #e9ecef;">Parties</td>
+								<td style="padding: 10px 14px; color: #212529; font-size: 13px; border-bottom: 1px solid #e9ecef;">{{Plaintiff}} v. {{Defendant}}</td>
+								</tr>
+								<tr>
+								<td style="background: #f8f9fa; padding: 10px 14px; color: #6c757d; font-size: 13px; border-bottom: 1px solid #e9ecef;">Service Type</td>
+								<td style="padding: 10px 14px; color: #212529; font-size: 13px; border-bottom: 1px solid #e9ecef;">{{ServiceType}}</td>
+								</tr>
+								<tr>
+								<td style="background: #f8f9fa; padding: 10px 14px; color: #6c757d; font-size: 13px; border-bottom: 1px solid #e9ecef;">Return Date</td>
+								<td style="padding: 10px 14px; color: #212529; font-size: 13px; border-bottom: 1px solid #e9ecef;">{{ReturnDate}}</td>
+								</tr>
+								<tr>
+								<td style="background: #f8f9fa; padding: 10px 14px; color: #6c757d; font-size: 13px;">Your File No.</td>
+								<td style="padding: 10px 14px; color: #212529; font-size: 13px;">{{FileNumber}}</td>
+								</tr>
+								</tbody>
+								</table>
+								</td>
+								</tr>
+								<tr>
+								<td style="padding: 0 24px 22px 24px;">
+								<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background: #fffbea; border-left: 4px solid #f59e0b; border-radius: 4px;">
+								<tbody>
+								<tr>
+								<td style="padding: 14px 16px; color: #212529; font-size: 14px; line-height: 1.6;"><strong>Attached: your receipt and coversheet.</strong><br>Please print it and include it with any physical documents you submit to the court for this request.</td>
+								</tr>
+								</tbody>
+								</table>
+								</td>
+								</tr>
+								<tr>
+								<td style="padding: 0 24px 24px 24px; color: #495057; font-size: 14px; line-height: 1.6;">
+								<p style="margin: 0;">If anything above looks incorrect, reply to this email and we will take a look.</p>
+								</td>
+								</tr>
+								<tr>
+								<td style="background: #f8f9fa; border-top: 1px solid #e2e6ea; padding: 14px 24px; color: #868e96; font-size: 12px; line-height: 1.5;">{{OurCompanyName}}<br>Automated confirmation for request #{{RequestNo}} — please retain for your records.</td>
+								</tr>
+								</tbody>
+								</table>
+								</td>
+								</tr>
+								</tbody>
+								</table>
+						</textarea>
+					</td>
+				</tr> 
 				<tr>
 					<td>Order Form Email</td>
 					<td>{{agencyname}} New Job #{{requestno}} Received Via Web Order Form</td>
