@@ -26,6 +26,11 @@
 			</thead>
 			<tbody>
 				<tr>
+					<td>Docket or File Number</td>
+					<td>{{court_case.number}}</td>
+					<td>File Number / Docket Number already in 1</td>
+				</tr>
+				<tr>
 					<td>Lawfirm complete data</td>
 					<td>{{lawfirm.name}} - {{#if lawfirm.address}}{{lawfirm.address}}{{/if}}{{#if lawfirm.address2}} {{lawfirm.address2}}{{/if}}{{#if lawfirm.city}}, {{lawfirm.city}}{{/if}}{{#if lawfirm.state}}, {{lawfirm.state}}{{/if}}{{#if lawfirm.postal_code}} {{lawfirm.postal_code}}{{/if}}</td>
 					<td></td>
@@ -266,12 +271,12 @@
 				<tr>
 					<td>NotaryState</td>
 					<td>{{job.juratstate}}</td>
-					<td> </td>
+					<td></td>{{job.process_server_juratstate}}</td>
 				</tr>
 				<tr>
 					<td>NotaryCounty</td>
 					<td>{{job.juratcounty}}</td>
-					<td> </td>
+					<td>{{job.process_server_juratcounty}}</td>
 				</tr>
 				<tr>
 					<td>NotaryDate</td>
