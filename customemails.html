@@ -6,8 +6,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css" rel="stylesheet"/>
     <style>
-		table > tbody >tr> td:nth-child(2):hover, 
-	    table > tbody >tr> td:nth-child(3):hover {
+		table > tbody >tr> td:nth-child(3):hover, 
+	    table > tbody >tr> td:nth-child(4):hover {
 	        cursor: pointer;
 	        background-color: pink;
 	    }
@@ -18,9 +18,15 @@
 <body>
 	<div class="container">
 		<strong>Custom Emails</strong>
+		<div class="alert alert-info alert-dismissible fade show mt-2 mb-3" role="alert" style="font-size:14px;">
+			<strong>New custom emails added.</strong>
+			<span>#20 Email Dynaform and #21 Servers/Manners Statistical Report.</span>
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		</div>
 		<table class="table table-bordered" id="table" style="table-layout: fixed;">
 			<thead>
 				<tr>
+					<th style="width:48px;">#</th>
 					<th>Name</th>
 					<th>Subject (click auto copy)</th>
 					<th>Body (click auto copy)</th> 
@@ -30,6 +36,7 @@
 			</thead>
 			<tbody>
 				<tr>
+					<td>1</td>
 					<td>FedEx Print & Go Email</td>
 					<td>Print & Go - Job {{JobNum}} - {{DocCount}} document(s)</td>
 					<td>
@@ -95,6 +102,7 @@
 					<td>{{SenderName}}</td>
 				</tr> 
 				<tr>
+					<td>2</td>
 					<td>Court Request Receipt Email</td>
 					<td>Court Request Received - #{{RequestNo}}</td>
 					<td>
@@ -194,6 +202,7 @@
 					<td></td>
 				</tr> 
 				<tr>
+					<td>3</td>
 					<td>Order Form Email</td>
 					<td>{{agencyname}} New Job #{{requestno}} Received Via Web Order Form</td>
 					<td>
@@ -250,6 +259,7 @@
 					<td></td>
 				</tr> 
 				<tr>
+					<td>4</td>
 					<td>Confirmation Email</td>
 					<td>Job Received For Service Upon: {{Servee}}</td>
 					<td>
@@ -319,6 +329,7 @@
 					<td></td>
 				</tr> 
 				<tr>
+					<td>5</td>
 					<td>Commission Paid Email</td>
 					<td>Commission Paid Email</td>
 					<td>
@@ -387,6 +398,7 @@
 					<td></td>
 				</tr> 
 				<tr>
+					<td>6</td>
 					<td>Server Credential Email</td>
 					<td>Server Credential Email</td>
 					<td>
@@ -499,6 +511,7 @@
 					<td></td>
 				</tr> 
 				<tr>
+					<td>7</td>
 					<td>Auto Attempt Emails</td>
 					<td>Auto Attempt/Event Email Regarding Your File# {{JobScreenLawFirmJobRef}} {{JobScreenCompanyJobRef}} - {{Servee}}</td>
 					<td>
@@ -567,6 +580,7 @@
 					<td></td>
 				</tr> 
 				<tr>
+					<td>8</td>
 					<td>Signature Request Email</td>
 					<td>Signature Request For Job#{{JobNum}} - {{Servee}}</td>
 					<td>
@@ -634,6 +648,7 @@
 					<td></td>
 				</tr>
 				<tr>
+					<td>9</td>
 					<td>Attempt Email Manual</td>
 					<td>Attempt/Event Update: {{Servee}} CLS Job # {{JobNum}}</td>
 					<td>
@@ -703,6 +718,7 @@
 					<td></td>
 				</tr>
 				<tr>
+					<td>10</td>
 					<td>Auto Scanned Document Email</td>
 					<td>Job #{{JobNum}} - {{Servee}} -- Please See These Document(s)</td>
 					<td>
@@ -772,6 +788,7 @@
 					<td></td>
 				</tr> 
 				<tr>
+					<td>11</td>
 					<td>Custom Invoice Email</td>
 					<td>An Invoice(s) Has Been Generated For You From Fortis Legal Support</td>
 					<td>
@@ -840,6 +857,7 @@
 					<td></td>
 				</tr>
 				<tr>
+					<td>12</td>
 					<td>FullJob Statud Email</td>
 					<td>Job Status Regarding {{Servee}}, Your File# {{JobScreenLawFirmJobRef}} {{JobScreenCompanyJobRef}}</td>
 					<td>
@@ -909,6 +927,7 @@
 					<td></td>
 				</tr>
 				<tr>
+					<td>13</td>
 					<td>Request Update from Server</td>
 					<td>Urgent: Update(s) Required Immediately</td>
 					<td>
@@ -978,6 +997,7 @@
 					<td></td>
 				</tr>
 				<tr>
+					<td>14</td>
 					<td>Email Service Packet</td>
 					<td>Service Pack - New Job Assignment - {{Servee}}</td>
 					<td>
@@ -1048,6 +1068,7 @@ Please <a href="{{declinelink}}" target="_blank" rel="noopener">Click Here</a> T
 					<td></td>
 				</tr>
 				<tr>
+					<td>15</td>
 					<td>Auto Completion Email</td>
 					<td>Job Completed - {{Servee}}</td>
 					<td>
@@ -1118,6 +1139,7 @@ Please <a href="{{declinelink}}" target="_blank" rel="noopener">Click Here</a> T
 					<td></td>
 				</tr>
 				<tr>
+					<td>16</td>
 					<td>Custom Statement Email</td>
 					<td>A Statement Has Been Generated For You From Fortis Legal Support</td>
 					<td>
@@ -1187,6 +1209,7 @@ Please <a href="{{declinelink}}" target="_blank" rel="noopener">Click Here</a> T
 					<td></td>
 				</tr>
 				<tr>
+					<td>17</td>
 					<td>Manual Document Email</td>
 					<td>Job #{{JobNum}} - {{Servee}} -- Please See Attached Affidavit(s)</td>
 					<td>
@@ -1254,6 +1277,7 @@ Please <a href="{{declinelink}}" target="_blank" rel="noopener">Click Here</a> T
 					<td></td>
 				</tr>
 				<tr>
+					<td>18</td>
 					<td>Stop Service Email</td>
 					<td>Stop Service Email on {{JobNum}} - {{Servee}}</td>
 					<td>
@@ -1321,6 +1345,7 @@ Please <a href="{{declinelink}}" target="_blank" rel="noopener">Click Here</a> T
 					<td></td>
 				</tr>
 				<tr>
+					<td>19</td>
 					<td>Custom Email for Invitation To Collaberate</td>
 					<td></td>
 					<td>
@@ -1330,6 +1355,7 @@ Please <a href="{{declinelink}}" target="_blank" rel="noopener">Click Here</a> T
 					<td></td>
 				</tr>
 				<tr>
+					<td>20</td>
 					<td>Email Dynaform</td>
 					<td>Documents - Job {{JobNum}}</td>
 					<td>
@@ -1452,6 +1478,7 @@ Please <a href="{{declinelink}}" target="_blank" rel="noopener">Click Here</a> T
 					<td></td>
 				</tr>
 				<tr>
+					<td>21</td>
 					<td>Servers/Manners Statistical Report</td>
 					<td>Servers/Manners Statistical Report</td>
 					<td>
@@ -1576,7 +1603,7 @@ Please <a href="{{declinelink}}" target="_blank" rel="noopener">Click Here</a> T
 		var modal = new bootstrap.Modal(document.getElementById('viewModal'));
 		modal.show();
 	});
-	$('#table').on('click', 'td:nth-child(2)', function () {
+	$('#table').on('click', 'td:nth-child(3)', function () {
     const cell = this;
     const textToCopy = $(this).html().trim();
 
